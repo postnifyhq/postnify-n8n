@@ -1,66 +1,93 @@
-# Introduction
-[Postiz](https://postiz.com) is a powerful social media scheduling tool that allows you to manage your social media accounts efficiently.
+# n8n-nodes-postnify
 
-You can use n8n to automate your workflow and post to multiple social media platforms at once.
+[Postnify](https://postnify.com) is a powerful social media scheduling tool that allows you to manage your social media accounts efficiently.
 
-You can [self-host](https://docs.postiz.com/introduction) Postiz or use our [cloud version](https://platform.postiz.com).
+Use n8n to automate your workflow and post to multiple social media platforms at once.
+
 For example: Load news from Reddit >> Make it a video with AI >> Post it to your social media accounts.
 
-Postiz supports: X, LinkedIn, BlueSky, Instagram, Facebook, TikTok, YouTube, Pinterest, Dribbble, Telegram, Discord, Slack, Threads, Lemmy, Reddit, Mastodon, Warpcast, Nostr and VK.
-
-You can learn how to use Postiz + n8n after installation here:
-https://youtu.be/c50u3K3xsCI
+Postnify supports: X, LinkedIn, BlueSky, Instagram, Facebook, TikTok, YouTube, Pinterest, Dribbble, Telegram, Discord, Slack, Threads, Lemmy, Reddit, Mastodon, Warpcast, Nostr and VK.
 
 ---
 
-> Note
-> If you are self-hosting Postiz on port 5000 (reverse proxy),
-> Your host must end with /api for example:
-> http://yourdomain.com/api
+> **Note**
+> If your Postnify instance uses a reverse proxy on port 5000,
+> your host must end with `/api`, for example:
+> `http://yourdomain.com/api`
 
-Alternatively, you can use the SDK with curl, check the [Postiz API documentation](https://docs.postiz.com/public-api) for more information.
+Check the [Postnify API documentation](https://docs.postnify.com/public-api) for more information.
 
 ---
 
-## Installation (quick installation)
+## Installation (quick)
 
-- Click on settings
-- Click on Community Nodes
-- Click on Install
-- Add "n8n-nodes-postiz" to "npm Package Name"
-- Click on Install
+- Click on **Settings**
+- Click on **Community Nodes**
+- Click on **Install**
+- Enter `n8n-nodes-postnify` in the **npm Package Name** field
+- Click on **Install**
 
 ![community-node.png](community-node.png)
 
 ---
 
-## Installation (non-docker - manual installation)
-Go to your n8n installation usually located at `~/.n8n`.
-Check if you have the `custom` folder, if not create it and create a new package.json file inside.
+## Installation (manual — non-docker)
+
+Go to your n8n installation directory (usually `~/.n8n`). Create the `custom` folder if it doesn't exist:
+
 ```bash
 mkdir -p ~/.n8n/custom
+cd ~/.n8n/custom
 npm init -y
+npm install n8n-nodes-postnify
 ```
 
-Then install the Postiz node package:
-```
-npm install n8n-nodes-postiz
-```
+---
 
-## For docker users (manual installation)
-Create a new folder on your host machine, for example `~/n8n-custom-nodes`, and create a new package.json file inside:
+## Installation (manual — docker)
+
 ```bash
-mkdir -p ~/n8n-custom-nodes
-npm init -y
+docker exec -it <n8n-container> /bin/sh
+cd /home/node
+npm install n8n-nodes-postnify
 ```
 
-install the Postiz node package:
-```bash
-npm install n8n-nodes-postiz
-```
+Then restart the container.
 
-When you run the n8n docker container, mount the custom nodes folder to the container:
-Add the following environment variable to your docker run command:
-```
-N8N_CUSTOM_EXTENSIONS="~/n8n-custom-nodes"
-```
+---
+
+## Credentials
+
+1. In n8n, go to **Credentials** → **New**
+2. Search for **Postnify API**
+3. Enter your **API Key** (found in Postnify → Settings → Developers → Access)
+4. Enter your **Host** (default: `https://api.postnify.com`, or your self-hosted URL ending in `/api`)
+
+---
+
+## Operations
+
+| Operation | Description |
+|-----------|-------------|
+| **Create Post** | Schedule a post to one or more channels |
+| **Get Posts** | List posts within a date range |
+| **Delete Post** | Delete a post by ID |
+| **Get Channels** | List all connected social media channels |
+| **Upload File** | Upload a file and get back a URL |
+| **Generate Video** | Generate AI videos |
+| **Video Function** | Execute video-related functions (e.g. load voices) |
+
+---
+
+## Links
+
+- **Website:** [postnify.com](https://postnify.com)
+- **API Docs:** [docs.postnify.com/public-api](https://docs.postnify.com/public-api)
+- **GitHub:** [postnifyhq/postnify-n8n](https://github.com/postnifyhq/postnify-n8n)
+- **Issues:** [Report bugs](https://github.com/postnifyhq/postnify-n8n/issues)
+
+---
+
+## License
+
+MIT

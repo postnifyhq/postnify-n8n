@@ -1,6 +1,6 @@
 {
-  "name": "n8n-nodes-postiz",
-  "version": "0.2.17",
+  "name": "n8n-nodes-postnify",
+  "version": "1.0.0",
   "description": "The ultimate social media scheduling tool",
   "keywords": [
     "social media",
@@ -9,14 +9,14 @@
     "n8n-community-node-package"
   ],
   "license": "MIT",
-  "homepage": "https://postiz.com",
+  "homepage": "https://postnify.com",
   "author": {
-    "name": "Nevo David",
-    "email": "nevo@postiz.com"
+    "name": "Postnify",
+    "email": "hello@postnify.com"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gitroomhq/postiz-n8n"
+    "url": "https://github.com/postnifyhq/postnify-n8n"
   },
   "engines": {
     "node": ">=20.15"
@@ -37,10 +37,10 @@
   "n8n": {
     "n8nNodesApiVersion": 1,
     "credentials": [
-      "dist/credentials/PostizApi.credentials.js"
+      "dist/credentials/PostnifyApi.credentials.js"
     ],
     "nodes": [
-      "dist/nodes/Postiz/Postiz.node.js"
+      "dist/nodes/Postnify/Postnify.node.js"
     ]
   },
   "devDependencies": {
