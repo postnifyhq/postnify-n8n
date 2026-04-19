@@ -14,8 +14,7 @@ export class Postnify implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'Postnify',
 		name: 'postnify',
-		// eslint-disable-next-line n8n-nodes-base/node-class-description-icon-not-svg
-		icon: 'file:postnify.png',
+		icon: 'file:postnify.svg',
 		group: ['output'],
 		version: 1,
 		subtitle: '={{$parameter["operation"]}}',
