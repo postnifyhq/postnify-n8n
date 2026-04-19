@@ -21,7 +21,7 @@ export class PostnifyApi implements ICredentialType {
 			displayName: 'Host',
 			name: 'host',
 			type: 'string',
-			default: 'https://api.postnify.com',
+			default: 'https://platform.postnify.com/api',
 		},
 	];
 
